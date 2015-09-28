@@ -7,7 +7,7 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>GNR-x 2.562</name>
+    <name>GNR-x 2.563</name>
 
     <description>
       Gestão de Normas Regulamentadoras
@@ -17,10 +17,10 @@
      Guilherme Campos
     </author>
 	
-	<gap:plugin name="org.apache.cordova.camera" />
-	<gap:plugin name="org.apache.cordova.geolocation" />
-	<gap:plugin name="org.apache.cordova.file" />
-	<gap:plugin name="org.apache.cordova.file-transfer" />	
+	<gap:plugin name="org.apache.cordova.camera" source="npm" />
+	<gap:plugin name="org.apache.cordova.geolocation" source="npm"/>
+	<gap:plugin name="org.apache.cordova.file" source="npm"/>
+	<gap:plugin name="org.apache.cordova.file-transfer"source="npm" />	
 
 
 	
