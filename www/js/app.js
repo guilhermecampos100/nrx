@@ -114,7 +114,8 @@ var app = {
 			$scope.secaoPai.codigo = '';
 		}
 
-		var db = window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
+		//var db = window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
+		var db = window.sqlitePlugin.openDatabase({name: "MeuBanco", location: 1});
 				
 		$scope.classelista = function(tipo) {
 			if (tipo == "secao")
@@ -127,7 +128,6 @@ var app = {
 		
 		function atualizaOffline () {
 			$scope.checklists = [];
-			db =  window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
 			db.transaction(function(tx) {
 				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_gui (token text, codigo text, descricao text, secaopai text, tipo text, obs text, conforme text)');
 				tx.executeSql("Select * from checklist_gui cg where codigo not like '%.%'", [], function(tx, results) {
@@ -221,7 +221,7 @@ var app = {
 			$scope.secaoPai.codigo = '';
 		}
 
-		var db = window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
+		var db = window.sqlitePlugin.openDatabase({name: "MeuBanco", location: 1});
 				
 		$scope.classelista = function(tipo) {
 			if (tipo == "secao")
@@ -289,7 +289,6 @@ var app = {
 
 		function atualizaoffline () {
 			$scope.secoes = [];
-			db =  window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
 			db.transaction(function(tx) {
 				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_gui (token text, codigo text, descricao text, secaopai text, tipo text, obs text, conforme text)');
 				tx.executeSql("Select *, (select count(*) from checklist_fotos where codigo = cg.codigo) as qtd_fotos from checklist_gui cg where cg.token=? and cg.secaopai=?", [$scope.token, $scope.secaoPai.codigo], function(tx, results) {
@@ -340,7 +339,7 @@ var app = {
 		$scope.atualizando = false;
 		$scope.total_itens = 0;
 
-		var db =  window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 2000000);
+		var db = window.sqlitePlugin.openDatabase({name: "MeuBanco", location: 1});
 
 		$scope.AtualizaBanco = function() {
 			puxabanco();
@@ -415,7 +414,7 @@ var app = {
 			function(fileSystem) {	fs = fileSystem	}
 			, fail);
 			
-		var db =  window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 2000000);
+		var db = window.sqlitePlugin.openDatabase({name: "MeuBanco", location: 1});
 
 		$scope.AtualizaBanco = function() {
 			puxabanco();
@@ -444,7 +443,6 @@ var app = {
 		
 		contaregistrosbanco();
 		function contaregistrosbanco() {
-			db =  window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
 			db.transaction(function(tx) {
 				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_gui (token text, codigo text, descricao text, secaopai text, tipo text, conforme text, obs text, latitude text, longitude text)');
 				tx.executeSql("Select (Select count(*) from checklist_gui where token=cg.token  and tipo='item') as totalitens, (Select count(*) from checklist_gui where token=cg.token and tipo='item' and conforme is not null) as totalrespondidos, (Select count(*) from checklist_gui where token=cg.token  and tipo='item' and conforme='sim') as totalconforme, (Select count(*) from checklist_gui where token=cg.token  and tipo='item' and conforme='nao') as totalnaoconforme, (Select count(*) from checklist_gui where token=cg.token and tipo='item' and conforme='nao') as totalnaoconforme, (Select count(*) from checklist_gui where token=cg.token  and tipo='item' and conforme='nao se aplica') as totalnaoseaplica from checklist_gui cg where token=? and tipo='item' ", [$scope.token], function(tx, results) {
@@ -599,7 +597,7 @@ var app = {
 			}
 			, deuerro);
 	
-		var db = window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
+		var db = window.sqlitePlugin.openDatabase({name: "MeuBanco", location: 1});
 		
 		$scope.fotos = [];
 		ledados();
@@ -863,7 +861,7 @@ var app = {
 			
 	var nome_foto = '';
 	
-	var db = window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
+	var db = window.sqlitePlugin.openDatabase({name: "MeuBanco", location: 1});
 
 	$scope.gravaobservacao = function() {
 		if ($scope.url_foto == undefined) {
