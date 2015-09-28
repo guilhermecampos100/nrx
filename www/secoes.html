@@ -1,0 +1,57 @@
+<ons-page ng-controller="SecoesController">
+    
+    <ons-toolbar>
+    <div class="left"><ons-back-button>Voltar</ons-back-button></div>
+    <div class="center">{{secaoPai.descricao}}</div>
+	<div class="right">
+	<ons-toolbar-button ng-click="VoltaTopo()">
+	<ons-icon icon="fa-home"></ons-toolbar-button>
+	
+	<ons-toolbar-button ng-click="PaginaConfig()">
+	<ons-icon icon="fa-gear"></ons-toolbar-button></div>
+	</ons-toolbar>
+
+<style>
+.lista_amarela {
+  background-color: gold;
+  width=100%;
+  height=100%;
+  
+}
+
+
+</style>
+	
+	<ons-list >
+	<ons-list-item modifier="chevron" class="{{classelista(secao.tipo)}}" ng-repeat="secao in secoes" ng-click="showDetail($index)">
+		<ons-row>
+			<ons-col width=10%>
+			    <section>
+				<span ng-show="secao.tipo == 'secao'"><ons-icon icon="fa-folder-o" ></ons_icon></span>
+				<span ng-show="secao.tipo == 'item'" style="color:{{coricone(secao.conforme)}}"><ons-icon icon="{{icone(secao.conforme)}}" ></ons_icon></span> 
+
+				<br>
+				<span ng-show="secao.qtd_fotos > 0" style="font-size:10px; color:#1284ff;"><ons-icon icon="fa-camera" ></ons_icon></span>
+				<span ng-show="secao.latitude != undefined && secao.latitude != ''" style="font-size:10px; color:#1284ff;"><ons-icon icon="fa-map-marker" ></ons_icon></span>
+				<span ng-show="secao.obs != undefined && secao.obs != ''" style="font-size:10px; color:#1284ff;"><ons-icon icon="fa-comment" ></ons_icon></span>				
+                </section>
+			</ons-col>
+			<ons-col width=80%>
+			    <section>
+				<span ng-show="secao.tipo == 'secao'"><b>{{secao.codigo}} - {{secao.descricao}} </b></span>
+				<span ng-show="secao.tipo == 'item'">{{secao.codigo}} - {{secao.descricao}}</span>
+				
+				
+                </section>
+			</ons-col>		
+			<ons-col width=10%>
+			    <section>
+			
+                </section>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
+	
+</ons-page>
+

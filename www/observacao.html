@@ -1,0 +1,66 @@
+<ons-page ng-controller="ObservacaoController">
+    
+    <ons-toolbar>
+    <div class="left"><ons-back-button>Voltar</ons-back-button></div>
+    <div class="center">{{secaoPai.descricao}}</div>
+	<div class="right"><ons-toolbar-button ng-click="VoltaTopo()">
+	<ons-icon icon="fa-home"></ons-toolbar-button></div>
+	</ons-toolbar>
+	
+<style>
+
+#tituloitem
+{
+    background-color: white;
+    line-height: normal; 
+    padding-bottom: 10px   !important;
+    padding-top: 10px;
+}
+.obs
+{
+    width: 100%;
+    margin-top: 10px;
+    height: 150px;
+}	
+</style>
+<ons-list >
+	<ons-list-item id="tituloitem">
+		<ons-row>
+			<ons-col>
+			   <b>{{secaoPai.descricao}}</b>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
+	<ons-list-header> <ons-icon icon="fa-comment"></ons-icon> Observação <span ng-show="(url_foto != undefined)"> Foto </span></ons-list-header>
+	    <ons-list-item ng-show="(url_foto != undefined)">
+		<ons-row>
+			<ons-col width="25%" style="padding: 10px 10px 10px 10px;"><img ng-src={{url_foto}}></ons-col>
+			<ons-col width="75%">
+				<textarea class="obs" name="observacao" ng-model="observacao" cols=40 rows=4></textarea><br>
+				<button class="button button--large" ng-click="gravaobservacao()">Registrar</button>
+			</ons-col>
+		</ons-row>
+        </ons-list-item>
+		
+		<ons-list-item ng-show="(url_foto == undefined)">
+		<ons-row>
+			<ons-col width="100%">
+				<textarea class="obs" name="observacao" ng-model="observacao" cols=40 rows=4></textarea><br>
+				<button class="button button--large" ng-click="gravaobservacao()">Registrar</button>
+			</ons-col>
+		</ons-row>
+        </ons-list-item>
+		
+		
+</ons-list>
+
+		
+		<br><br>
+		<center>
+		<button class="button" ng-click="recognizeSpeech();"> <h2> &nbsp; <ons-icon icon="fa-microphone" ></ons-icon> &nbsp; </h2></button>
+		</center>
+		
+	
+</ons-page>
+

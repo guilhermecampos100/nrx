@@ -1,0 +1,181 @@
+<ons-page ng-controller="ItensController">
+    
+    <ons-toolbar>
+    <div class="left"><ons-toolbar-button ng-click="VoltaSecoes()"><ons-icon icon="fa-chevron-left"></ons-icon> voltar </ons-toolbar-button></div>
+    <div class="center">{{secaoPai.descricao}}</div>
+	<div class="right"><ons-toolbar-button ng-click="VoltaTopo()">
+	<ons-icon icon="fa-home"></ons-toolbar-button></div>
+	</ons-toolbar>
+	
+<style>
+
+#tituloitem
+{
+    background-color: white;
+    line-height: normal; 
+    padding-bottom: 10px   !important;
+    padding-top: 10px;
+}
+
+
+</style>
+	
+	
+	
+	<ons-list >
+	
+	<ons-list-item id="tituloitem">
+		<ons-row>
+			<ons-col>
+			   <b>{{secaoPai.descricao}}</b>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
+	<ons-list-header>Conformidade</ons-list-header>
+	
+	    <ons-list-item modifier="tappable">
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="conformidade" ng-model="conformidade" value="sim" ng-click="verificavalor()">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Sim
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable">
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="conformidade" ng-model="conformidade" value="nao" ng-click="verificavalor()">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Não
+          </label>
+        </ons-list-item>
+	
+	
+	      <ons-list-item modifier="tappable">
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="conformidade" ng-model="conformidade" value="nao se aplica" ng-click="verificavalor()">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Não se Aplica
+          </label>
+        </ons-list-item>
+		
+
+	<ons-list-header>Ações</ons-list-header>
+	
+		<ons-list-item modifier="tappable" ng-click="acao('gps','')">
+			<ons-row>
+				<ons-col width=11%><center>
+					<span style="color: {{cor_icone_gps()}}">
+					   <ons-icon icon="fa-map-marker" size="20px" fixed-width="false" ng-show="!obtendo_gps"> </ons-icon>
+					   <ons-icon icon="refresh" size="14px" spin="true" fixed-width="true" ng-show="obtendo_gps"></ons-icon>
+					</span></center>
+				</ons-col>
+				<ons-col width=89%>
+						Marcar Geolocalização (GPS)
+				</ons-col>						
+			</ons-row>
+		</ons-list-item>	
+		
+		<ons-list-item modifier="tappable" ng-click="acao('observacao','',txtobservacao)">
+			<ons-row>
+				<ons-col width=11%><center>
+				 <span style="color: {{cor_icone_obs}}">
+				 <ons-icon icon="fa-comment"  size="20px" fixed-width="false" >
+				</ons-icon></center>
+				</span>
+				</ons-col>
+				<ons-col width=89%>
+					Registrar/Alterar Observação
+				</ons-col>						
+			</ons-row>
+		</ons-list-item>	
+
+		<ons-list-item modifier="tappable" ng-click="acao('fotos','','')">
+			<ons-row>
+				<ons-col width=11%><center>
+					<span style="color: {{cor_icone_foto()}}">
+					<ons-icon icon="fa-camera" size="20px" fixed-width="false">	</ons-icon>
+					</span></center>
+				</ons-col>
+				<ons-col width=89%>
+						Registrar nova foto
+				</ons-col>						
+			</ons-row>
+		</ons-list-item>
+	
+	
+	<ons-list-header>Conteúdo</ons-list-header>
+		
+
+		<ons-list-item modifier="tappable" ng-click="acao('gps','','')" ng-show="latitude != undefined" style="padding: 20px;">
+		<ons-row style="line-height: normal;">
+			<ons-col width=10%>
+				<center>
+					<ons-icon icon="fa-map-marker" style="font-size:20px; color:#1284ff;"></ons-icon>
+				</center>
+				</ons-col>
+				<ons-col width=90%>
+					Lat: {{latitude}} Lon: {{longitude}}
+			</ons-col>
+		</ons-row>   
+		</ons-list-item>
+
+	
+
+		<ons-list-item modifier="tappable" ng-click="acao('observacao', '', txtobservacao)" ng-show="(txtobservacao != undefined) && (txtobservacao != '')" style="padding: 20px;">
+		<ons-row style="line-height: normal;">
+		
+			<ons-col width=10%>
+				<center>
+					<ons-icon icon="fa-comment" style="font-size:16px; color:#1284ff;"></ons-icon>
+				</center>
+				</ons-col>
+				<ons-col width=90%>
+					{{txtobservacao}}
+				</ons-col>
+
+    	</ons-row>   
+		</ons-list-item>
+
+
+		<!--FOTOS -->
+		<section style="padding: 10px;">
+        <div ng-repeat="foto in fotos | orderBy:'url'">
+        <ons-row style="padding: 0 0 10px 0;">
+            <ons-col>
+                <section style="padding: 0 10px 0 0;">
+                <img ng-src="{{foto.url}}" alt="{{foto.observacao}}" ng-click="showDetail($index)"/>
+                </section>
+            </ons-col>
+            <ons-col>
+                <section>
+                <h3 class="title" ng-click="showDetail($index)">Foto {{$index + 1}}</h3>
+				<p ng-show="foto.observacao != undefined"><ons-icon icon="fa-comment" style="font-size:16px; color:#1284ff;" ></ons-icon> {{foto.observacao}}</p>
+                </section>
+				<!-- mostra os botoes com texto so na primeira foto pra testar qual opcao é melhor -->
+				<div ng-show="$index == 99">
+				<button class="button" ng-click="acao('observacao', foto.url, foto.observacao)"> <ons-icon icon="fa-comment" ></ons-icon>
+			    Obs Foto</button><br><br>
+				<button class="button" ng-click="acao('trocarfoto', foto.url, '')"> <ons-icon icon="fa-camera" ></ons-icon>
+			    Trocar Foto</button><br><br>
+				<button class="button" style="background-color:red;" ng-click="acao('apagarfoto', foto.url, '')"> <ons-icon icon="fa-trash-o" ></ons-icon>
+			    Apagar Foto/Obs</button>
+				</div>
+				
+				<div ng-show="$index != 99">
+				<button class="button" ng-click="acao('observacao', foto.url, foto.observacao)"> <ons-icon icon="fa-comment" ></ons-icon></button>
+				<button class="button" ng-click="acao('trocarfoto', foto.url, '')"> <ons-icon icon="fa-camera" ></ons-icon></button>
+				<button class="button" style="background-color:red;" ng-click="acao('apagarfoto', foto.url, '')"> <ons-icon icon="fa-trash-o" ></ons-icon></button>
+
+				</div>
+				
+            </ons-col>
+        </ons-row>
+        </div>
+    </section>
+	
+
+
+		
+</ons-page>
+

@@ -1,0 +1,132 @@
+<ons-page ng-controller="ConfigController">
+    
+    <ons-toolbar>
+		<div class="left"><ons-back-button>Voltar</ons-back-button></div>
+		<div class="center">Configurações</div>
+		<div class="right">
+		<ons-toolbar-button ng-click="VoltaTopo()">
+		<ons-icon icon="fa-home"></ons-toolbar-button></div>
+	</ons-toolbar>
+
+	
+		<ons-list-item modifier="tappable" >
+		<ons-row>
+			<ons-col>
+			 <b> {{nomechecklist}} </b>
+
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
+
+		<ons-list-item modifier="tappable" >
+		<ons-row>
+			<ons-col>
+			    <section>
+				Total de itens: {{ totalitens}}
+				</ons-col>
+                </section>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+
+		<ons-list-item modifier="tappable" >
+		<ons-row>
+			<ons-col>
+			    <section>
+				Total de itens respondidos: {{ totalrespondidos}}
+				</ons-col>
+                </section>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
+	
+		<ons-list-item modifier="tappable" >
+		<ons-row>
+			<ons-col>
+			    <section>
+				Total de itens conforme: {{ totalconforme}}
+				</ons-col>
+                </section>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+
+
+		<ons-list-item modifier="tappable" >
+		<ons-row>
+			<ons-col>
+			    <section>
+				Total de itens não conforme: {{ totalnaoconforme}}
+				</ons-col>
+                </section>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
+
+		<ons-list-item modifier="tappable" >
+		<ons-row>
+			<ons-col>
+			    <section>
+				Total de itens não se aplica: {{ totalnaoseaplica}}
+				</ons-col>
+                </section>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
+	
+
+	
+	
+	<ons-list-item  ng-click="atualizaservidor()" modifier="chevron" class="lista_cinza">
+		<ons-row>
+			<ons-col>
+			    <section>
+				<span><ons-icon icon="fa-upload"></span>
+					Exportar dados para  Servidor {{conta_atualizando_servidor}}/{{total_para_servidor}} {{conta_atualizando_fotos_servidor}}/{{total_fotos_para_servidor}} 
+				</ons-col>
+                </section>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
+	<ons-list-item  ng-click="entraescolha();" modifier="chevron" class="lista_cinza">
+		<ons-row>
+			<ons-col>
+			    <section>
+				<span><ons-icon icon="fa-refresh"></span>
+					Trocar Checklist
+				</ons-col>
+                </section>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>	
+	
+	<ons-list-item  ng-click="apagachecklist();" modifier="chevron" class="lista_cinza">
+		<ons-row>
+			<ons-col>
+			    <section>
+				<span><ons-icon icon="fa-refresh"></span>
+					Apagar Checklist
+				</ons-col>
+                </section>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>	
+<style>
+
+.lista_cinza {
+  background-color: #c0c0c0;
+  width=100%;
+  height=100%;
+}
+
+</style>
+	
+</ons-page>
+
+
+
