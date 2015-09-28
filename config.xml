@@ -19,7 +19,7 @@
 	
 	<gap:plugin name="org.apache.cordova.camera" />
 	<gap:plugin name="org.apache.cordova.geolocation" />
-	<gap:plugin name="com.applicationnexus.plugins.speechrecognition" />
+
 
 	
 	<icon src="icon.png" />
