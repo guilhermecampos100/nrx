@@ -7,7 +7,7 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>GNR-x 2.570</name>
+    <name>GNR-x 2.571</name>
 
     <description>
       Gestão de Normas Regulamentadoras
@@ -22,7 +22,7 @@
 	<gap:plugin name="org.apache.cordova.file" source="npm" />
 	<gap:plugin name="org.apache.cordova.file-transfer" source="npm" />	
 	<gap:plugin name="com.applicationnexus.plugins.speechrecognition" />
-	<gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" version="1.1.1" />
+	<gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" source="npm"  />
 	<preference name="ChaveSpeech" value="1d05de58aef3c70e1a0072c5afc456ae" />
 
 	
