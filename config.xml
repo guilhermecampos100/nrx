@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.gui.testefile" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>GNR-x</name>
+    <name>GNR-x 2.51</name>
     <description>
         Gestão de Normas Regulamentadoras
     </description>
     <author email="guilhermecampos100@gmail.com" href="http://barczr.com/jur">
-        NRX 2.50
+        NRX
     </author>
     <content src="index.html" />
 	
