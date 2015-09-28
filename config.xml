@@ -7,7 +7,7 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>GNR-x 2.555</name>
+    <name>GNR-x 2.556</name>
 
     <description>
       Gestão de Normas Regulamentadoras
@@ -17,8 +17,12 @@
      Guilherme Campos
     </author>
 
-    <!-- We'll include the Barcode plugin as an example -->
-    <gap:plugin name="com.phonegap.plugins.barcodescanner" />
+	<gap:plugin name="org.apache.cordova.file-transfer" version="0.4.6" />
+	<gap:plugin name="org.apache.cordova.file" version="1.3.1" />
+	<gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" version="1.1.1" />
+	<gap:plugin name="org.apache.cordova.geolocation" version="0.3.10" />
+	<gap:plugin name="com.applicationnexus.plugins.speechrecognition" version="0.0.1" />
+	<gap:plugin name="com.phonegap.plugins.speech" version="1.0.0" /> 
 </widget>
 
 
