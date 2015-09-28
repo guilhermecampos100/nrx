@@ -7,7 +7,7 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>GNR-x 2.564</name>
+    <name>GNR-x 2.565</name>
 
     <description>
       Gestão de Normas Regulamentadoras
@@ -20,7 +20,7 @@
 	<gap:plugin name="org.apache.cordova.camera" source="npm" />
 	<gap:plugin name="org.apache.cordova.geolocation" source="npm"/>
 	<gap:plugin name="org.apache.cordova.file" source="npm"/>
-	<gap:plugin name="org.apache.cordova.file-transfer"source="npm" />	
+	<gap:plugin name="org.apache.cordova.file-transfer" source="npm" />	
 
 
 	
