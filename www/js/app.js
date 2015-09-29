@@ -841,7 +841,7 @@ var app = {
 	
 	var recognizing;
     var recognition = new SpeechRecognition();
-    recognition.continuous = true;
+    recognition.continuous = false;
 	recognition.maxAlternatives = 1;
 	recognition.lang = 'pt'
     reset();
