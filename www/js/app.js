@@ -838,6 +838,41 @@ var app = {
 	$scope.url_foto = page.options.url_foto;
 	$scope.observacao = page.options.observacao;
 	
+	
+	var recognizing;
+    var recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    reset();
+    recognition.onend = reset;
+
+    recognition.onresult = function (event) {
+      for (var i = resultIndex; i < event.results.length; ++i) {
+        if (event.results.final) {
+          textarea.value += event.results[i][0].transcript;
+        }
+      }
+    }
+
+    function reset() {
+      recognizing = false;
+      button.innerHTML = "Click to Speak";
+    }
+
+    $scope.toggleStartStop = function() {
+      if (recognizing) {
+        recognition.stop();
+        reset();
+      } else {
+        recognition.start();
+        recognizing = true;
+        button.innerHTML = "Click to Stop";
+      }
+    }
+	
+	
+	
+	
+	
             $scope.recognizeSpeech = function () {
                 var maxMatches = 1;
                 var promptString = "Comece a falar, para terminar clique no botão vermelho ou fique em silêncio."; // optional
@@ -853,6 +888,10 @@ var app = {
                 }, maxMatches, promptString, language);
             }
 
+			
+			
+			
+			
             // Show the list of the supported languages
             $scope.getSupportedLanguages =  function () {
                 window.plugins.speechrecognizer.getSupportedLanguages(function(languages){
