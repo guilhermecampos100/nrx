@@ -115,7 +115,7 @@ var app = {
 		}
 
 		//var db = window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
-		var db = window.sqlitePlugin.openDatabase({name: "MeuBanco", location: 1});
+		var db = window.openDatabase({name: "MeuBanco", location: 1});
 				
 		$scope.classelista = function(tipo) {
 			if (tipo == "secao")
@@ -221,7 +221,7 @@ var app = {
 			$scope.secaoPai.codigo = '';
 		}
 
-		var db = window.sqlitePlugin.openDatabase({name: "MeuBanco", location: 1});
+		var db = window.openDatabase({name: "MeuBanco", location: 1});
 				
 		$scope.classelista = function(tipo) {
 			if (tipo == "secao")
@@ -343,7 +343,7 @@ var app = {
 		$scope.atualizando = false;
 		$scope.total_itens = 0;
 
-		var db = window.sqlitePlugin.openDatabase({name: "MeuBanco", location: 1});
+		var db = window.openDatabase({name: "MeuBanco", location: 1});
 
 		$scope.AtualizaBanco = function() {
 			puxabanco();
@@ -370,7 +370,7 @@ var app = {
 		
 		
 		function criabanco() {
-			//db = window.sqlitePlugin.openDatabase({name: "my.db"});
+			//db = window.openDatabase({name: "my.db"});
 
 			db.transaction(function(tx) {
 				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_gui (token text, codigo text, descricao text, secaopai text, tipo text, conforme text, obs text, latitude text, longitude text)');
@@ -418,7 +418,7 @@ var app = {
 			function(fileSystem) {	fs = fileSystem	}
 			, fail);
 			
-		var db = window.sqlitePlugin.openDatabase({name: "MeuBanco", location: 1});
+		var db = window.openDatabase({name: "MeuBanco", location: 1});
 
 		$scope.AtualizaBanco = function() {
 			puxabanco();
@@ -463,7 +463,7 @@ var app = {
 		
 
 		$scope.atualizaservidor = function() {
-			//db = window.sqlitePlugin.openDatabase({name: "my.db"});
+			//db = window.openDatabase({name: "my.db"});
 
 			// atualiza dados itens
 			db.transaction(function(tx) {
@@ -601,7 +601,7 @@ var app = {
 			}
 			, deuerro);
 	
-		var db = window.sqlitePlugin.openDatabase({name: "MeuBanco", location: 1});
+		var db = window.openDatabase({name: "MeuBanco", location: 1});
 		
 		$scope.fotos = [];
 		ledados();
@@ -907,7 +907,7 @@ var app = {
 			
 	var nome_foto = '';
 	
-	var db = window.sqlitePlugin.openDatabase({name: "MeuBanco", location: 1});
+	var db = window.openDatabase({name: "MeuBanco", location: 1});
 
 	$scope.gravaobservacao = function() {
 		if ($scope.url_foto == undefined) {
