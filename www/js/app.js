@@ -297,7 +297,10 @@ var app = {
 							$scope.secoes.push(row);
 						}
 						$scope.$apply();
+					}, function(a, b) {
+						 alert(b.message);
 					}
+						
 				);
 			});
 		}
