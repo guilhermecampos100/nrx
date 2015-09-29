@@ -115,7 +115,7 @@ var app = {
 		}
 
 		//var db = window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
-		var db = window.openDatabase({name: "MeuBanco", location: 1});
+		var db = window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
 				
 		$scope.classelista = function(tipo) {
 			if (tipo == "secao")
@@ -221,7 +221,7 @@ var app = {
 			$scope.secaoPai.codigo = '';
 		}
 
-		var db = window.openDatabase({name: "MeuBanco", location: 1});
+		var db = window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
 				
 		$scope.classelista = function(tipo) {
 			if (tipo == "secao")
@@ -343,7 +343,7 @@ var app = {
 		$scope.atualizando = false;
 		$scope.total_itens = 0;
 
-		var db = window.openDatabase({name: "MeuBanco", location: 1});
+		var db = window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
 
 		$scope.AtualizaBanco = function() {
 			puxabanco();
@@ -418,7 +418,7 @@ var app = {
 			function(fileSystem) {	fs = fileSystem	}
 			, fail);
 			
-		var db = window.openDatabase({name: "MeuBanco", location: 1});
+		var db = window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
 
 		$scope.AtualizaBanco = function() {
 			puxabanco();
@@ -601,7 +601,7 @@ var app = {
 			}
 			, deuerro);
 	
-		var db = window.openDatabase({name: "MeuBanco", location: 1});
+		var db = window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
 		
 		$scope.fotos = [];
 		ledados();
@@ -907,7 +907,7 @@ var app = {
 			
 	var nome_foto = '';
 	
-	var db = window.openDatabase({name: "MeuBanco", location: 1});
+	var db = window.openDatabase("MeuBanco", "1.0", "Cordova Demo", 200000);
 
 	$scope.gravaobservacao = function() {
 		if ($scope.url_foto == undefined) {
