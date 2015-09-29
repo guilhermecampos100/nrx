@@ -129,7 +129,7 @@ var app = {
 		function atualizaOffline () {
 			$scope.checklists = [];
 			db.transaction(function(tx) {
-				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_gui (token text, codigo text, descricao text, secaopai text, tipo text, obs text, conforme text)');
+				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_gui (token text, codigo text, descricao text, secaopai text, tipo text, conforme text, obs text, latitude text, longitude text)');
 				tx.executeSql("Select * from checklist_gui cg where codigo not like '%.%'", [], function(tx, results) {
 						for (var i=0; i < results.rows.length; i++){
 							row = results.rows.item(i);
@@ -467,7 +467,7 @@ var app = {
 
 			// atualiza dados itens
 			db.transaction(function(tx) {
-				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_gui (token text, codigo text, descricao text, secaopai text, tipo text, obs text, conforme text)');
+				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_gui (token text, codigo text, descricao text, secaopai text, tipo text, conforme text, obs text, latitude text, longitude text)');
 				tx.executeSql("select * from checklist_gui where (conforme is not null or obs is not null or latitude is not null)", [], function(tx, results) {
 						$scope.total_para_servidor = results.rows.length;
 						$scope.conta_atualizando_servidor = 0

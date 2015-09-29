@@ -2555,14 +2555,15 @@ h6 {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: block;
-  padding: 0 10px 0 10px;
+  padding: 10px 10px 10px 10px;
   margin: 0 0 0 0;
   border-top: none;
   border-bottom: 1px solid #ddd;
   color: #1f1f21;
   background-color: transparent;
   min-height: 44px;
-  line-height: 44px;
+  line-height: 23px;
+  
 }
 .list__item--no-padding {
   padding: 0;
