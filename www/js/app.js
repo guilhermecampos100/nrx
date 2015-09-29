@@ -850,9 +850,9 @@ var app = {
 		recognition.onresult = function (event) {
 			var result = event.results[0][0].transcript;
 			if ($scope.observacao == '' || $scope.observacao == undefined)
-					$scope.observacao = result;
+				$scope.observacao = result;
 			else 
-				$scope.observacao = $scope.observacao2 + ' ' + result;
+				$scope.observacao = $scope.observacao + ' ' + result;
 			$scope.$apply();
 		}
 
