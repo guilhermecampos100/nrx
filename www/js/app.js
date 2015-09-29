@@ -290,7 +290,7 @@ var app = {
 		function atualizaoffline () {
 			$scope.secoes = [];
 			db.transaction(function(tx) {
-				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_gui (token text, codigo text, descricao text, secaopai text, tipo text, obs text, conforme text)');
+				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_gui (token text, codigo text, descricao text, secaopai text, tipo text, conforme text, obs text, latitude text, longitude text)');
 				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_fotos (token text, codigo text, nome text, obs text)');
 				tx.executeSql("Select *, (select count(*) from checklist_fotos where codigo = cg.codigo) as qtd_fotos from checklist_gui cg where cg.token=? and cg.secaopai=?", [$scope.token, $scope.secaoPai.codigo], function(tx, results) {
 						for (var i=0; i < results.rows.length; i++){
@@ -858,7 +858,7 @@ var app = {
 
 		function reset() {
 		  recognizing = false;
-		  $scope.textobotao = " Clique para Falar";
+		  $scope.textobotao = "Ditar";
 		}
 
 		$scope.toggleStartStop = function() {
