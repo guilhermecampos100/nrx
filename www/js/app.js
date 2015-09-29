@@ -858,7 +858,7 @@ var app = {
 
 		function reset() {
 		  recognizing = false;
-		  button.innerHTML = "Click para Falar";
+		  $scope.textobotao = "<h3> &nbsp; <ons-icon icon='fa-microphone' ></ons-icon> Clique para Falar</h3>";
 		}
 
 		$scope.toggleStartStop = function() {
@@ -868,7 +868,7 @@ var app = {
 		  } else {
 			recognition.start();
 			recognizing = true;
-			button.innerHTML = "Click para Parar";
+			$scope.textobotao = "<h3><font color=red> &nbsp; <ons-icon icon='fa-microphone' ></ons-icon> Clique para Parar </font></h3>";
 		  }
 		}
 		
