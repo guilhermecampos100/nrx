@@ -38,8 +38,16 @@
 			<ons-col width="25%" style="padding: 10px 10px 10px 10px;"><img ng-src={{url_foto}}></ons-col>
 			<ons-col width="75%">
 				<textarea class="obs" name="observacao" ng-model="observacao" cols=40 rows=4></textarea><br>
+			</ons-col>
+			<ons-row>
+			<ons-col width=75% style="margin-right: 3px">
 				<button class="button button--large" ng-click="gravaobservacao()">Registrar</button>
 			</ons-col>
+			<ons-col width=20%>
+				<span ng-show="!ouvindo"><button class="button button--large" id="button" ng-click="toggleStartStop();"> &nbsp; <ons-icon icon="fa-microphone" ></ons-icon> Ditar </h3></button></span>
+				<span ng-show="ouvindo"><button class="button button--large" style="background-color:red" id="button" ng-click="toggleStartStop();"> &nbsp; <ons-icon icon="fa-microphone" ></ons-icon> Parar</h3></button></span>
+			</ons-col>
+			
 		</ons-row>
         </ons-list-item>
 		
