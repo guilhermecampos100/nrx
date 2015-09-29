@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
-	xmlns:android ="http://schemas.android.com/apk/res/android"
+	xmlns:android = "http://schemas.android.com/apk/res/android"
     id          = "com.gnrx"
     versionCode = "10"
     version     = "1.0.0" >
 
     <!-- versionCode is optional and Android only -->
 
-    <name>GNR-x 2.577</name>
+    <name>GNR-x 2.578</name>
 
     <description>
       Gestão de Normas Regulamentadoras
