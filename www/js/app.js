@@ -843,7 +843,7 @@ var app = {
     var recognition = new SpeechRecognition();
     recognition.continuous = true;
 	recognition.maxAlternatives = 1;
-	recognition.language = 'pt-BR'
+	recognition.lang = 'pt'
     reset();
     recognition.onend = reset;
 
