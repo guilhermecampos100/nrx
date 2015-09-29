@@ -1,61 +1,34 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-    <widget xmlns   = "http://www.w3.org/ns/widgets"
-    xmlns:gap   = "http://phonegap.com/ns/1.0"
-	xmlns:android = "http://schemas.android.com/apk/res/android"
-    id          = "com.gnrx"
-    versionCode = "10"
-    version     = "1.0.0" >
+<?xml version='1.0' encoding='utf-8'?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+		id="nrx.app.id" 
+		version="1.0.3">
 
-    <!-- versionCode is optional and Android only -->
-
-    <name>GNR-x 2.578</name>
-
+	<gap:config-file platform="android" parent="/manifest">
+     <application android:debuggable="true" />
+	</gap:config-file>
+	
+	
+    <name>NRX 2.600 </name>
+	<icon src="icon.png" />
     <description>
-      Gestão de Normas Regulamentadoras
+    NRX3
     </description>
 
-    <author href="https://gnrx.com" email="guilhermecampos100@gmail.com">
-     Guilherme Campos
+	<author href="http://chamagar.com" email="guilhermecampos100@gmail.com">
+        Guilherme de Oliveira Campos
     </author>
-	
-	<gap:config-file platform="android" parent="/manifest">
-		<application android:debuggable="true" />
-	</gap:config-file>
 
-	<gap:plugin name="org.apache.cordova.camera" source="npm" />
-	<gap:plugin name="org.apache.cordova.geolocation" source="npm" />
-	<gap:plugin name="org.apache.cordova.file" source="npm" />
-	<gap:plugin name="org.apache.cordova.file-transfer" source="npm" />	
+    <preference name="phonegap-version" value="3.7.0" /> 
 
-	<gap:plugin name="cordova-plugin-whitelist" source="npm" version="1.0.0" />
-	<gap:plugin name="com.brodysoft.sqliteplugin"  />
-	
-	<gap:plugin name="com.applicationnexus.plugins.speechrecognition" />	
-	<preference name="ChaveSpeech" value="1d05de58aef3c70e1a0072c5afc456ae" />
-
-	
-	<icon src="icon.png" />
-	<gap:splash src="splash.png" />
     <access origin="*" />
-	<allow-navigation href="*" />
-
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
-    <platform name="android">
-        <allow-intent href="market:*" />
-
-    </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-    </platform>
-
 	
+	<gap:plugin name="org.apache.cordova.file-transfer" version="0.4.6" />
+    <gap:plugin name="org.apache.cordova.file" />
+    <gap:plugin name="org.apache.cordova.core.camera" />
+	<gap:plugin name="com.brodysoft.sqliteplugin" version="1.0.6" />
+	<gap:plugin name="org.apache.cordova.geolocation" version="0.3.10" />
+	<gap:plugin name="com.sharinglabs.cordova.plugin.cache" version="1.0.0" />
+
 </widget>
-
-
-
