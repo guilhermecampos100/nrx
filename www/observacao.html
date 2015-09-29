@@ -55,7 +55,8 @@
 				<button class="button button--large" ng-click="gravaobservacao()">Registrar</button>
 			</ons-col>
 			<ons-col width=20%>
-				<button class="button" id="button" ng-click="toggleStartStop();"> &nbsp; <ons-icon icon="fa-microphone" ></ons-icon> {{textobotao}} </h3> </button>
+				<span ng-show="!ouvindo"><button class="button button--large" id="button" ng-click="toggleStartStop();"> &nbsp; <ons-icon icon="fa-microphone" ></ons-icon> Ditar </h3></button></span>
+				<span ng-show="ouvindo"><button class="button button--large" style="background-color:red" id="button" ng-click="toggleStartStop();"> &nbsp; <ons-icon icon="fa-microphone" ></ons-icon> Parar</h3></button></span>
 			</ons-col>
         </ons-list-item>
 		

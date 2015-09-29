@@ -858,7 +858,7 @@ var app = {
 
 		function reset() {
 		  recognizing = false;
-		  $scope.textobotao = "Ditar";
+		  $scope.ouvindo = false;
 		}
 
 		$scope.toggleStartStop = function() {
@@ -868,7 +868,7 @@ var app = {
 		  } else {
 			recognition.start();
 			recognizing = true;
-			$scope.textobotao = "Parar";
+			$scope.ouvindo = true;
 		  }
 		}
 		
