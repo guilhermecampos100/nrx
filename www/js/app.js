@@ -832,78 +832,72 @@ var app = {
 	// OBSERVACAO Controller *********************************************************
 	// *******************************************************************************
     app.controller('ObservacaoController', function($interval, $scope, $rootScope, $http) {
-	$scope.token = $rootScope.tokenGlobal
-	var page = MeuNavigator.getCurrentPage();
-	$scope.secaoPai = page.options.secaoPai;
-	$scope.url_foto = page.options.url_foto;
-	$scope.observacao = page.options.observacao;
-	
-	
-	var recognizing;
-    var recognition = new SpeechRecognition();
-    recognition.continuous = false;
-	recognition.maxAlternatives = 1;
-	recognition.lang = 'pt'
-    reset();
-    recognition.onend = reset;
+		$scope.token = $rootScope.tokenGlobal
+		var page = MeuNavigator.getCurrentPage();
+		$scope.secaoPai = page.options.secaoPai;
+		$scope.url_foto = page.options.url_foto;
+		$scope.observacao = page.options.observacao;
+		
+		
+		var recognizing;
+		var recognition = new SpeechRecognition();
+		recognition.continuous = false;
+		recognition.maxAlternatives = 1;
+		recognition.lang = 'pt'
+		reset();
+		recognition.onend = reset;
 
-    recognition.onresult = function (event) {
-		var result = event.results[0][0].transcript;
-		if ($scope.observacao2 == '' || $scope.observacao2 == undefined)
-				$scope.observacao2 = result;
-		else 
-			$scope.observacao2 = $scope.observacao2 + ' ' + result;
-		$scope.$apply();
-    }
+		recognition.onresult = function (event) {
+			var result = event.results[0][0].transcript;
+			if ($scope.observacao == '' || $scope.observacao == undefined)
+					$scope.observacao = result;
+			else 
+				$scope.observacao = $scope.observacao2 + ' ' + result;
+			$scope.$apply();
+		}
 
-    function reset() {
-      recognizing = false;
-      button.innerHTML = "Click to Speak";
-    }
+		function reset() {
+		  recognizing = false;
+		  button.innerHTML = "Click para Falar";
+		}
 
-    $scope.toggleStartStop = function() {
-      if (recognizing) {
-        recognition.stop();
-        reset();
-      } else {
-        recognition.start();
-        recognizing = true;
-        button.innerHTML = "Click to Stop";
-      }
-    }
+		$scope.toggleStartStop = function() {
+		  if (recognizing) {
+			recognition.stop();
+			reset();
+		  } else {
+			recognition.start();
+			recognizing = true;
+			button.innerHTML = "Click para Parar";
+		  }
+		}
+		
 	
-	
-	
-	
-	
-            $scope.recognizeSpeech = function () {
-                var maxMatches = 1;
-                var promptString = "Comece a falar, para terminar clique no botão vermelho ou fique em silêncio."; // optional
-                var language = "pt-BR";                     // optional
-                window.plugins.speechrecognizer.startRecognize(function(result){
-					if ($scope.observacao == '' || $scope.observacao == undefined)
-							$scope.observacao = result;
-					else 
-						$scope.observacao = $scope.observacao + ' ' + result;
-					$scope.$apply();
-                }, function(errorMessage){
-                    console.log("Erro no reconhecimento de voz, por favor, tente novamente: " + errorMessage);
-                }, maxMatches, promptString, language);
-            }
+		$scope.recognizeSpeech = function () {
+			var maxMatches = 1;
+			var promptString = "Comece a falar, para terminar clique no botão vermelho ou fique em silêncio."; // optional
+			var language = "pt-BR";                     // optional
+			window.plugins.speechrecognizer.startRecognize(function(result){
+				if ($scope.observacao == '' || $scope.observacao == undefined)
+						$scope.observacao = result;
+				else 
+					$scope.observacao = $scope.observacao + ' ' + result;
+				$scope.$apply();
+			}, function(errorMessage){
+				console.log("Erro no reconhecimento de voz, por favor, tente novamente: " + errorMessage);
+			}, maxMatches, promptString, language);
+		}
 
-			
-			
-			
-			
-            // Show the list of the supported languages
-            $scope.getSupportedLanguages =  function () {
-                window.plugins.speechrecognizer.getSupportedLanguages(function(languages){
-                    // display the json array
-                    alert(languages);
-                }, function(error){
-                    alert("Could not retrieve the supported languages : " + error);
-                });
-            }
+	
+		// Show the list of the supported languages
+		$scope.getSupportedLanguages =  function () {
+			window.plugins.speechrecognizer.getSupportedLanguages(function(languages){
+				// display the json array
+				alert(languages);
+			}, function(error){
+				alert("Could not retrieve the supported languages : " + error);
+			});
+		}
 			
 	var nome_foto = '';
 	

@@ -53,9 +53,9 @@
         </ons-list-item>
 		
 		
-			<textarea  ng-model="observacao2" rows=5 cols=80></textarea>
+	<!-- 		<textarea  ng-model="observacao2" rows=5 cols=80></textarea>
 			<button id="button" ng-click="toggleStartStop()">TESTE SPEECH RECOGNITION</button>
-
+ -->
   
   
 		
@@ -64,7 +64,8 @@
 		
 		<br><br>
 		<center>
-		<button class="button" ng-click="recognizeSpeech();"> <h2> &nbsp; <ons-icon icon="fa-microphone" ></ons-icon> &nbsp; </h2></button>
+		<!-- <button class="button" ng-click="recognizeSpeech();"> <h3> &nbsp; <ons-icon icon="fa-microphone" ></ons-icon> &nbsp; </h3></button> -->
+		<button class="button" id="button" ng-click="toggleStartStop();"> <h3> &nbsp; <ons-icon icon="fa-microphone" ></ons-icon> Clique para Falar</h3></button>
 		</center>
 		
 	
