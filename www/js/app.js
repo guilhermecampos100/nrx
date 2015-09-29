@@ -280,8 +280,12 @@ var app = {
 		$scope.icone = function(conforme) {
 					if (conforme == undefined || conforme == '')
 						return 'fa-question'; 
-					else
+					else if (conforme == 'sim')
 						return 'fa-check-square-o';
+					else if (conforme == 'nao')
+						return 'fa-warning';	
+					else if (conforme == 'naoseaplica')
+						return 'fa-minus';						
 		}
 
 		
