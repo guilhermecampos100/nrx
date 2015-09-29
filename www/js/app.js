@@ -842,15 +842,18 @@ var app = {
 	var recognizing;
     var recognition = new SpeechRecognition();
     recognition.continuous = true;
+	recognition.maxAlternatives = 1;
+	recognition.language = 'pt-BR'
     reset();
     recognition.onend = reset;
 
     recognition.onresult = function (event) {
-      for (var i = resultIndex; i < event.results.length; ++i) {
-        if (event.results.final) {
-          textarea.value += event.results[i][0].transcript;
-        }
-      }
+		var result = event.results[0][0].transcript;
+		if ($scope.observacao2 == '' || $scope.observacao2 == undefined)
+				$scope.observacao2 = result;
+		else 
+			$scope.observacao2 = $scope.observacao2 + ' ' + result;
+		$scope.$apply();
     }
 
     function reset() {
