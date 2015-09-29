@@ -22,7 +22,7 @@
 	<gap:plugin name="org.apache.cordova.file" source="npm" />
 	<gap:plugin name="org.apache.cordova.file-transfer" source="npm" />	
 
-	<gap:plugin name="cordova-plugin-whitelist" source="npm" version="1.0.0"
+	<gap:plugin name="cordova-plugin-whitelist" source="npm" version="1.0.0" />
 	<gap:plugin name="com.brodysoft.sqliteplugin"  />
 	
 	<gap:plugin name="com.applicationnexus.plugins.speechrecognition" />	
