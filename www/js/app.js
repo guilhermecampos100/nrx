@@ -250,7 +250,7 @@ var app = {
 		
 		$scope.abrepagina = function(File_Name) {
 				var fotoURL = fs.root.nativeURL + "/anexo/" + File_Name;
-				window.open(fotoURL, '_blank', 'location=yes');	
+				window.open(fotoURL, '_blank', 'location=yes', 'EnableViewPortScale=yes');	
 		}
 		
 		if ($scope.secaoPai.entidade != undefined && $scope.secaoPai.entidade != '') {
