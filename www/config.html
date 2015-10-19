@@ -12,7 +12,7 @@
 		<ons-list-item modifier="tappable" >
 		<ons-row>
 			<ons-col>
-			 <b> {{nomechecklist}} </b>
+			 <b> {{secaoPai.descricao}} </b>
 
 			</ons-col>						
 		</ons-row>
@@ -23,7 +23,7 @@
 		<ons-row>
 			<ons-col>
 			    <section>
-				Total de itens: {{ totalitens}}
+				Total de itens na seção: {{ totalitens}} 
 				</ons-col>
                 </section>
 			</ons-col>						
@@ -34,7 +34,7 @@
 		<ons-row>
 			<ons-col>
 			    <section>
-				Total de itens respondidos: {{ totalrespondidos}}
+				itens respondidos: {{ totalrespondidos}} 
 				</ons-col>
                 </section>
 			</ons-col>						
@@ -46,7 +46,7 @@
 		<ons-row>
 			<ons-col>
 			    <section>
-				Total de itens conforme: {{ totalconforme}}
+				Itens conforme: {{ totalconforme}} 
 				</ons-col>
                 </section>
 			</ons-col>						
@@ -58,7 +58,7 @@
 		<ons-row>
 			<ons-col>
 			    <section>
-				Total de itens não conforme: {{ totalnaoconforme}}
+				Itens não conforme: {{ totalnaoconforme}} 
 				</ons-col>
                 </section>
 			</ons-col>						
@@ -70,7 +70,7 @@
 		<ons-row>
 			<ons-col>
 			    <section>
-				Total de itens não se aplica: {{ totalnaoseaplica}}
+				Itens não se aplica: {{ totalnaoseaplica}}
 				</ons-col>
                 </section>
 			</ons-col>						
@@ -78,41 +78,70 @@
 	</ons-list-item>
 	
 	
+	<ons-list-item  ng-click="clonasecao()" modifier="chevron" class="lista_cinza">
+		<ons-row>
+			<ons-col width=12%>
+				<span>&nbsp; <ons-icon icon="ion-ios-browsers-outline"> &nbsp; </span>
+			</ons-col>
+			<ons-col width=88%>
+					Clonar Seção
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
+	<ons-list-item  ng-show="fotosecao == undefined ||  fotosecao == '' "   ng-click="tirafotosecao()" modifier="chevron" class="lista_cinza">
+		<ons-row>
+			<ons-col width=12%>
+				<span>&nbsp; <ons-icon icon="fa-camera"> &nbsp; </span>
 
+			</ons-col>
+			<ons-col width=88%>
+				Atribuir Foto a Seção
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
+	<ons-list-item  ng-show="fotosecao != undefined && fotosecao != ''" ng-click="apagafotosecao()" modifier="chevron" class="lista_cinza">
+		<ons-row>
+			<ons-col width=12%>
+				<span> <img ng-src={{fotosecao}} style="width:80%"> </span>
+			</ons-col>
+			<ons-col width=88%>
+					Apaga Foto da Seção 
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
 	
 	
 	<ons-list-item  ng-click="atualizaservidor()" modifier="chevron" class="lista_cinza">
 		<ons-row>
-			<ons-col>
-			    <section>
-				<span><ons-icon icon="fa-upload"></span>
-					Exportar dados para  Servidor {{conta_atualizando_servidor}}/{{total_para_servidor}} {{conta_atualizando_fotos_servidor}}/{{total_fotos_para_servidor}} 
+			<ons-col width=12%>
+				<span>&nbsp; <ons-icon icon="fa-upload"> &nbsp; </span>
 				</ons-col>
-                </section>
+				<ons-col width=88%>
+					Exportar dados para  Servidor {{conta_atualizando_servidor}}/{{total_para_servidor}} {{conta_atualizando_fotos_servidor}}/{{total_fotos_para_servidor}} 
 			</ons-col>						
 		</ons-row>
 	</ons-list-item>
 	
 	<ons-list-item  ng-click="entraescolha();" modifier="chevron" class="lista_cinza">
 		<ons-row>
-			<ons-col>
-			    <section>
-				<span><ons-icon icon="fa-refresh"></span>
+			<ons-col width=12%>
+				<span>&nbsp; <ons-icon icon="fa-refresh"> &nbsp; </span>
+			</ons-col>
+			<ons-col width=88%>			
 					Trocar Checklist
-				</ons-col>
-                </section>
 			</ons-col>						
 		</ons-row>
 	</ons-list-item>	
 	
 	<ons-list-item  ng-click="apagachecklist();" modifier="chevron" class="lista_vermelha" >
 		<ons-row>
-			<ons-col>
-			    <section>
-				<span><ons-icon icon="fa fa-trash"></span>
-					Apagar Checklist
-				</ons-col>
-                </section>
+			<ons-col width=12%>
+				<span>&nbsp; <ons-icon icon="fa-trash-o"> &nbsp; </span>
+			</ons-col>
+			<ons-col width=88%>
+					Apagar Seção
 			</ons-col>						
 		</ons-row>
 	</ons-list-item>	

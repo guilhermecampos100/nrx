@@ -2,7 +2,7 @@
     
     <ons-toolbar>
     <div class="left"><ons-toolbar-button ng-click="VoltaSecoes()"><ons-icon icon="fa-chevron-left"></ons-icon> voltar </ons-toolbar-button></div>
-    <div class="center">{{secaoPai.descricao}}</div>
+    <div class="center"></div>
 	<div class="right"><ons-toolbar-button ng-click="VoltaTopo()">
 	<ons-icon icon="fa-home"></ons-toolbar-button></div>
 	</ons-toolbar>
@@ -22,12 +22,14 @@
 	
 	
 	
-	<ons-list >
+	<ons-list style="border-bottom: 0px;">
 	
 	<ons-list-item id="tituloitem">
 		<ons-row>
 			<ons-col>
-			   <b>{{secaoPai.descricao}}</b>
+				<span compile="descricaoitem"></span><br>
+				&nbsp; <a id="imagemanexa" href="#" ng-show="secao.imagemanexa" ng-click="abrepagina(secao.imagemanexa);"> veja imagem </a>
+				
 			</ons-col>						
 		</ons-row>
 	</ons-list-item>
@@ -174,8 +176,8 @@
         </div>
     </section>
 	
+	<div style="text-align: center">
 
-
-		
+  </div>
+	
 </ons-page>
-

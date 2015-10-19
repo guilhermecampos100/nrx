@@ -1,4 +1,4 @@
-<ons-page ng-controller="EscolheChecklistController">
+﻿<ons-page ng-controller="EscolheChecklistController">
     
     <ons-toolbar>
     <div class="left"><ons-back-button>Voltar</ons-back-button></div>
@@ -38,7 +38,14 @@
 </style>
 	
 <ons-list >
-<ons-list-header> Checklists já importados para o app </ons-list-header>
+<ons-list-header> Checklists já baixados </ons-list-header>
+	<ons-list-item class="lista_cinza" ng-show="!temchecklistlocal"  >
+		<ons-row>
+			Nenhum checklist baixado para o app
+		</ons-row>
+	</ons-list>
+
+
 	<ons-list-item modifier="chevron" class="lista_azul" ng-repeat="item in checklists | filter: {importado: true}" ng-click="entrasecoes(item.token, item.descricao)">
 		<ons-row>
 			<ons-col width=10%>
@@ -48,7 +55,8 @@
 			</ons-col>
 			<ons-col width=80%>
 			    <section>
-				<span><b>{{item.descricao}} </b></span>
+				<span><b>{{item.descricao}} </b></span><br>
+				<span style="font-size:10px">DATA LIMITE: {{item.datalimite}}</span>
                 </section>
 			</ons-col>		
 			<ons-col width=10%>
@@ -61,7 +69,13 @@
 </ons-list>
 <br>&nbsp;<br>
 <ons-list>
-	<ons-list-header> Checklists disponíveis no servidor</ons-list-header>
+	<ons-list-header> Checklists para baixar</ons-list-header>
+	<ons-list-item class="lista_cinza" ng-show="!temchecklistservidor" >
+		<ons-row>
+			Nenhum checklist disponível no servidor para download
+		</ons-row>
+	</ons-list>
+	
 	<ons-list-item modifier="chevron" class="lista_cinza" ng-repeat="item in checklists | filter:{importado: false}" ng-click="importaChecklist(item.token, item.descricao)" >
 		<ons-row>
 			<ons-col width=10%>
@@ -72,6 +86,8 @@
 			<ons-col width=80%>
 			    <section>
 				<span><b>{{item.descricao}}</b></span>
+				<br>
+				<span style="font-size:10px">DATA LIMITE: {{item.datalimite}}</span>
                 </section>
 			</ons-col>		
 			<ons-col width=10%>

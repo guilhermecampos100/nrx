@@ -10,7 +10,7 @@
 	</gap:config-file>
 	
 	
-    <name>GNRX 2.626 </name>
+    <name>GNRX 2.700 </name>
 	<icon src="icon.png" />
 	<gap:splash src="splash.png" />
 	
@@ -26,6 +26,7 @@
 
     <access origin="*" />
 	
+	
 	<gap:plugin name="org.apache.cordova.file-transfer" version="0.4.6" />
     <gap:plugin name="org.apache.cordova.file" />
     <gap:plugin name="org.apache.cordova.core.camera" />
@@ -34,6 +35,7 @@
 	<gap:plugin name="com.sharinglabs.cordova.plugin.cache" version="1.0.0" />
 	<gap:plugin name="com.aserputko.speech.speechrecognition" version="0.1.0" />
 	<preference name="ChaveSpeech" value="1d05de58aef3c70e1a0072c5afc456ae" />
+	<gap:plugin name="org.li8.inappbrowser" version="0.1" />
 	
 	
 	
