@@ -11,7 +11,7 @@
 	  
     <ons-toolbar>
     <div class="left"><ons-back-button>Voltar</ons-back-button></div>
-    <div class="center">{{secaoPai.descricao}}</div>
+    <div class="center">{{secaoPai.codigo}} {{secaoPai.descricao}}</div>
 	<div class="right">
 	<ons-toolbar-button ng-click="VoltaTopo()">
 	<ons-icon icon="fa-home"></ons-toolbar-button>
@@ -60,8 +60,8 @@ text-decoration: underline;
 			</ons-col>
 			<ons-col width=80%>
 			    <section>
-				<span ng-show="secao.tipo == 'secao'"><b><span compile="secao.descricaocomglossario"></span> ({{secao.respondidos}}/{{secao.totalitens}}) </b> &nbsp; <a id="imagemanexa" href="#" ng-show="secao.imagemanexa" ng-click="abrepagina(secao.imagemanexa);"> veja imagem </a></span>
-				<span ng-show="secao.tipo == 'item'"><span compile="secao.descricaocomglossario"></span> &nbsp; <a id="imagemanexa" href="#" ng-show="secao.imagemanexa" ng-click="abrepagina(secao.imagemanexa);"> veja imagem </a></span>
+				<span ng-show="secao.tipo == 'secao'"><b>{{secao.codigo}}  - <span compile="secao.descricaocomglossario"></span> ({{secao.respondidos}}/{{secao.totalitens}}) </b> &nbsp; <a id="imagemanexa" href="#" ng-show="secao.imagemanexa" ng-click="abrepagina(secao.imagemanexa);"> veja imagem </a></span>
+				<span ng-show="secao.tipo == 'item'">{{secao.codigo}} - <span compile="secao.descricaocomglossario"></span> &nbsp; <a id="imagemanexa" href="#" ng-show="secao.imagemanexa" ng-click="abrepagina(secao.imagemanexa);"> veja imagem </a></span>
 				
 				
                 </section>
