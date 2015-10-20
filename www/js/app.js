@@ -68,6 +68,10 @@ var app = {
 
 		function checkLogin(login, senha) {
 			
+			if (localStorage.getItem('login') != undefined) {
+					entrachecklists();
+			}
+			
 			var urljson = 'http://gnrx.com.br/loginJson.asp';
 			$http({method: 'POST',
 				   url: urljson,
