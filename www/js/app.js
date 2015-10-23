@@ -1236,6 +1236,7 @@ var app = {
 		function gotFileEntry(fileEntry) {
 			var d = new Date();
 			var nome_arquivo = d.getTime();
+			alert(nome_arquivo);
 			fileEntry.moveTo(fs.root, nome_arquivo , fsSuccess, deuerro);
 		}
 
@@ -1269,7 +1270,7 @@ var app = {
 					});
 				});
 			}
-			console.log("gravou " + arquivo.name + " - " + arquivo.fullPath);
+			alert("gravou " + arquivo.name + " - " + arquivo.fullPath);
 		}
 		
 		var deuerro = function(error) {
