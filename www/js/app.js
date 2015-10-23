@@ -1234,8 +1234,9 @@ var app = {
 		
 		// MOVE A FOTO PARA O DIRETORIO PERMANENTE		
 		function gotFileEntry(fileEntry) {
-			alert(fileEntry.name)
-			fileEntry.moveTo(fs.root, fileEntry.name , fsSuccess, deuerro);
+			var d = new Date();
+			var nome_arquivo = d.getTime();
+			fileEntry.moveTo(fs.root, nome_arquivo , fsSuccess, deuerro);
 		}
 
 		var fsSuccess = function(arquivo) {
