@@ -77,38 +77,50 @@
 		</ons-row>
 	</ons-list-item>
 	
-
+	<ons-list-item class="lista_cinza">
+		<ons-row>
+			<ons-col width=12%>
+			<section>
+				<span>&nbsp; <ons-icon icon="fa-search"> &nbsp; </span>
+			</section>
+			</ons-col>
+			<ons-col width=88%>
+			<section>
+					<input name=busca ng-model=busca><button ng-click="buscar()">ok</button>
+			</section>
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+	
 	<ons-list-item  ng-click="clonasecao()" modifier="chevron" class="lista_cinza">
 		<ons-row>
 			<ons-col width=12%>
+			<section>
 				<span>&nbsp; <ons-icon icon="ion-ios-browsers-outline"> &nbsp; </span>
+			</section>
 			</ons-col>
 			<ons-col width=88%>
+			<section>
 					Clonar Seção
+			</section>					
 			</ons-col>						
 		</ons-row>
 	</ons-list-item>
 
 	
-	<ons-list-item class="lista_cinza">
-		<ons-row>
-			<ons-col width=12%>
-				<span>&nbsp; <ons-icon icon="fa-search"> &nbsp; </span>
-			</ons-col>
-			<ons-col width=88%>
-					<input name=busca ng-model=busca><button ng-click="buscar()">ok</button>
-			</ons-col>						
-		</ons-row>
-	</ons-list-item>
+
 	
 	<ons-list-item  ng-show="fotosecao == undefined ||  fotosecao == '' "   ng-click="tirafotosecao()" modifier="chevron" class="lista_cinza">
 		<ons-row>
 			<ons-col width=12%>
+			<section>
 				<span>&nbsp; <ons-icon icon="fa-camera"> &nbsp; </span>
-
+			</section>
 			</ons-col>
 			<ons-col width=88%>
+			<section>
 				Atribuir Foto a Seção
+			</section>
 			</ons-col>						
 		</ons-row>
 	</ons-list-item>
@@ -116,10 +128,14 @@
 	<ons-list-item  ng-show="fotosecao != undefined && fotosecao != ''" ng-click="apagafotosecao()" modifier="chevron" class="lista_cinza">
 		<ons-row>
 			<ons-col width=12%>
+			<section>
 				<span> <img ng-src={{fotosecao}} style="width:80%"> </span>
+			</section>
 			</ons-col>
 			<ons-col width=88%>
+			<section>
 					Apaga Foto da Seção 
+			</section>
 			</ons-col>						
 		</ons-row>
 	</ons-list-item>
@@ -128,10 +144,14 @@
 	<ons-list-item  ng-click="atualizaservidor()" modifier="chevron" class="lista_cinza">
 		<ons-row>
 			<ons-col width=12%>
+			<section>
 				<span>&nbsp; <ons-icon icon="fa-upload"> &nbsp; </span>
+			</section>
 				</ons-col>
 				<ons-col width=88%>
-					Exportar dados para  Servidor {{conta_atualizando_servidor}}/{{total_para_servidor}} {{conta_atualizando_fotos_servidor}}/{{total_fotos_para_servidor}} 
+				<section>
+					Upload Servidor {{conta_atualizando_servidor}}/{{total_para_servidor}} {{conta_atualizando_fotos_servidor}}/{{total_fotos_para_servidor}} 
+				</section>
 			</ons-col>						
 		</ons-row>
 	</ons-list-item>
@@ -139,10 +159,14 @@
 	<ons-list-item  ng-click="entraescolha();" modifier="chevron" class="lista_cinza">
 		<ons-row>
 			<ons-col width=12%>
+			<section>
 				<span>&nbsp; <ons-icon icon="fa-refresh"> &nbsp; </span>
+			</section>				
 			</ons-col>
-			<ons-col width=88%>			
+			<ons-col width=88%>	
+			<section>			
 					Trocar Checklist
+			</section>
 			</ons-col>						
 		</ons-row>
 	</ons-list-item>	
@@ -150,10 +174,14 @@
 	<ons-list-item  ng-click="apagachecklist();" modifier="chevron" class="lista_vermelha" >
 		<ons-row>
 			<ons-col width=12%>
+			<section>
 				<span>&nbsp; <ons-icon icon="fa-trash-o"> &nbsp; </span>
+			</section>
 			</ons-col>
 			<ons-col width=88%>
+			<section>
 					Apagar Seção
+			</section>
 			</ons-col>						
 		</ons-row>
 	</ons-list-item>	
