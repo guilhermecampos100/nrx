@@ -77,7 +77,7 @@
 		</ons-row>
 	</ons-list-item>
 	
-	
+
 	<ons-list-item  ng-click="clonasecao()" modifier="chevron" class="lista_cinza">
 		<ons-row>
 			<ons-col width=12%>
@@ -85,6 +85,18 @@
 			</ons-col>
 			<ons-col width=88%>
 					Clonar Seção
+			</ons-col>						
+		</ons-row>
+	</ons-list-item>
+
+	
+	<ons-list-item class="lista_cinza">
+		<ons-row>
+			<ons-col width=12%>
+				<span>&nbsp; <ons-icon icon="fa-search"> &nbsp; </span>
+			</ons-col>
+			<ons-col width=88%>
+					<input name=busca ng-model=busca><button ng-click="buscar()">ok</button>
 			</ons-col>						
 		</ons-row>
 	</ons-list-item>

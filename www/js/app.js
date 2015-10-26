@@ -242,6 +242,11 @@ var app = {
 			});
 		};
 		
+		if (page.options.busca != undefined) {
+			var busca = page.options.busca;
+			$scope.busca = page.options.busca;
+		}
+		
 		if ($rootScope.chkoffline == undefined) 
 			$rootScope.chkoffline = true;
 		
@@ -368,8 +373,14 @@ var app = {
 			db.transaction(function(tx) {
 				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_gui (token text, codigo text, descricao text, secaopai text, tipo text, conforme text, obs text, latitude text, longitude text,datalimite text, entidade int, ordenacao text, codigooriginal text, atualizouservidor int, imagemanexa text)');
 				tx.executeSql('CREATE TABLE IF NOT EXISTS checklist_fotos (token text, codigo text, nome text, obs text, entidade int, atualizouservidor int)');
-
-				tx.executeSql("Select *, (select count(*) from checklist_fotos where codigo = cg.codigo and token = cg.token and ifnull(entidade,0) = ifnull(cg.entidade,0)) as qtd_fotos, (select nome from checklist_fotos where codigo = cg.codigo and token = cg.token and ifnull(entidade,0) = ifnull(cg.entidade,0) limit 1) as fotosecao, (select count(*) from checklist_gui where token=cg.token and tipo='item' and codigo like cg.codigo || '.%' ) as totalitens, (select sum(case when conforme is not null then 1 else 0 end) totalrespondidos from checklist_gui where token = cg.token and tipo='item' and codigo like cg.codigo || '.%') as respondidos from checklist_gui cg where cg.token=? and cg.secaopai=? order by ordenacao, entidade", [$scope.token, $scope.secaoPai.codigo], function(tx, results) {
+				var sql = ''
+				if ($scope.busca != undefined && $scope.busca != '') {
+					sql = "Select ?,?,*, (select count(*) from checklist_fotos where codigo = cg.codigo and token = cg.token and ifnull(entidade,0) = ifnull(cg.entidade,0)) as qtd_fotos, (select nome from checklist_fotos where codigo = cg.codigo and token = cg.token and ifnull(entidade,0) = ifnull(cg.entidade,0) limit 1) as fotosecao, (select count(*) from checklist_gui where token=cg.token and tipo='item' and codigo like cg.codigo || '.%' ) as totalitens, (select sum(case when conforme is not null then 1 else 0 end) totalrespondidos from checklist_gui where token = cg.token and tipo='item' and codigo like cg.codigo || '.%') as respondidos from checklist_gui cg where cg.descricao like '%" + $scope.busca + "%' order by ordenacao, entidade"
+				}
+				else {
+					sql = "Select *, (select count(*) from checklist_fotos where codigo = cg.codigo and token = cg.token and ifnull(entidade,0) = ifnull(cg.entidade,0)) as qtd_fotos, (select nome from checklist_fotos where codigo = cg.codigo and token = cg.token and ifnull(entidade,0) = ifnull(cg.entidade,0) limit 1) as fotosecao, (select count(*) from checklist_gui where token=cg.token and tipo='item' and codigo like cg.codigo || '.%' ) as totalitens, (select sum(case when conforme is not null then 1 else 0 end) totalrespondidos from checklist_gui where token = cg.token and tipo='item' and codigo like cg.codigo || '.%') as respondidos from checklist_gui cg where cg.token=? and cg.secaopai=? order by ordenacao, entidade"
+				}
+				tx.executeSql(sql, [$scope.token, $scope.secaoPai.codigo], function(tx, results) {
 						for (var i=0; i < results.rows.length; i++){
 							row = results.rows.item(i);
 							row.descricaocomglossario = row.descricao.replace("<(glo", "<a id=linkglossario class=linkglo ng-click=showglossario($event,");
@@ -639,6 +650,11 @@ var app = {
 			);
 		});
 			
+		$scope.buscar = function(index) {
+			$scope.MeuNavigator.pushPage('secoes.html',{secaoPai: $rootScope.secaoPai, busca: $scope.busca, animation: 'slide'});
+
+		}
+		
 		// TIRA FOTO
 		$scope.tirafotosecao = function()	{
 			FotoService.tirafoto('', codigo, entidade);
