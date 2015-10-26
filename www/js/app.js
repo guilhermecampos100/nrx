@@ -484,7 +484,7 @@ var app = {
 				criabanco();
 			}).
 			error(function(data, status, headers, config) {
-				alert('erro no json ' +  data);
+				alert('erro no arquivo json (importando checklist)' +  status.message);
 				$scope.atualizando = false;
 			});	
 		};
@@ -499,7 +499,7 @@ var app = {
 				criabancoGlossario();
 			}).
 			error(function(data, status, headers, config) {
-				alert('erro no json ' +  data);
+				alert('erro no arquivo json (importando glossario)' +  status.message);
 				$scope.atualizando = false;
 			});	
 		};
@@ -594,7 +594,7 @@ var app = {
 		}
 
 	});
-	
+		
 	// CONFIG Controller *********************************************************
 	// *******************************************************************************
     app.controller('ConfigController', function($scope, $rootScope, $http, transformRequestAsFormPost, FotoService ) {
